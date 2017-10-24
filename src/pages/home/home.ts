@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {NavController, ModalController, Content} from 'ionic-angular';
+import {Component, Input, OnInit} from '@angular/core';
+import {NavController, ModalController, Content, AlertController} from 'ionic-angular';
 import { TestPage } from '../test/test';
 import {PreviewPage} from "../preview/preview";
 
@@ -9,10 +9,9 @@ import {PreviewPage} from "../preview/preview";
 })
 export class HomePage {
 
-
   name;
   img;
-
+  miListaFiltre;
   miLista : Array<any> =[
     {
       name : 'Monumento 1',
@@ -39,17 +38,62 @@ export class HomePage {
       url: 'http://enmiscriptorium.com/wp-content/uploads/2013/07/Plaza-de-la-Merced.-Iglesia-de-la-Merced-y-monumento-a-Torrijos-19011.jpg'
     }
   ]
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public modalCtrl: ModalController) {
+  }
+
+  ngOnInit() {
+    this.miListaFiltre = this.miLista;
   }
 
   @Input("content") protected content: Content;
 
 
-  showContent(page: any, op: any, img: any) {
+  AddCliked() {
+    let alert = this.alertCtrl.create(
+      {
+        title: 'Add new monument',
+        message: 'Please complete the form data to add new monument',
+        inputs: [
+          {
+            name: 'monuName',
+            placeholder: 'Monument Name'
+          },
+          {
+            name: 'monuDesc',
+            placeholder: 'Monument Description'
+          },
+          {
+            name: 'monuImg',
+            placeholder: 'Monuments image URL'
+          }
+          ],
+
+        buttons:[
+          {
+            text: 'Add',
+            cssClass : 'alertMsg',
+            handler: data => {
+              console.log('data are :' + data);
+              this.miLista.unshift(
+                {
+                  name: data.monuName,
+                  description: data.monuDesc,
+                  url: data.monuImg
+                }
+              )
+            }
+          }
+        ]
+      });
+    alert.present();
+  }
+
+  showContent(user: any, op: any) {
     this.navCtrl.push(TestPage,{
-      description: page,
+      description: user.description,
+      name: user.name,
       op: op,
-      imageUrl: img
+      imageUrl: user.url
     });
   }
 
@@ -63,7 +107,19 @@ export class HomePage {
   }
 
   presentProfileModal(name: any, url: any) {
-    const profileModal = this.modalCtrl.create(PreviewPage, { name : name, imageUrl: url} );
-    profileModal.present();
+  //  this.photoViewer.show(url);
+    // const profileModal = this.modalCtrl.create(PreviewPage, { name : name, imageUrl: url} );
+    //profileModal.present();
+  }
+
+  filterItems(ev:any) {
+
+    let val = ev.target.value;
+
+    if (val && val.trim() !== '') {
+      this.miListaFiltre = this.miLista.filter( function (item) {
+        return item.name.toLowerCase().includes(val.toLowerCase());
+      });
+    }
   }
 }

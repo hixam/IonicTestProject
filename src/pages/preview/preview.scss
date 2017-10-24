@@ -7,10 +7,12 @@ page-preview {
   overflow:hidden !important;
 }
 
-.modal {
+.scroll-content {
   overflow-y: auto !important;
-  overflow: hidden !important;
-  overflow-scroll: false !important;
+  overflow-x: hidden !important;
+}
+.modal {
+  //overflow-scroll: false !important;
   background-color: gray;
 }
 

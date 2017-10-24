@@ -7,6 +7,10 @@ import { TestPage } from "../pages/test/test";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {PreviewPage} from "../pages/preview/preview";
+import {FormsModule} from '@angular/forms';
+import { LowerCasePipe } from '@angular/common';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { ToastController } from 'ionic-angular';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,9 @@ import {PreviewPage} from "../pages/preview/preview";
     PreviewPage
   ],
   imports: [
+    IonicImageViewerModule,
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -27,6 +33,8 @@ import {PreviewPage} from "../pages/preview/preview";
     PreviewPage
   ],
   providers: [
+    ToastController,
+    LowerCasePipe,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

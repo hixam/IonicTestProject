@@ -1,35 +1,53 @@
-<ion-header>
+<ion-header >
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+
+   <ion-title>
+     App Donation
+   </ion-title>
+
   </ion-navbar>
 </ion-header>
-
 
 <ion-content padding class="card-background-page">
 <ion-grid>
 
-  <!--ROW 1-->
-  <ion-row>
-    <ion-col col-12 col-xs-6 col-lg-6 offset-lg-3>
+  <ion-row offset-lg-2>
 
-          <ion-card *ngFor="let datos of miLista">
+    <ion-col col-10 left>
+      <ion-toolbar color="secondary" style="border-radius: 25px;">
+        <ion-searchbar placeholder="Search" style="border-radius: 35px;" (ionInput)="filterItems($event)"></ion-searchbar>
+      </ion-toolbar>
+    </ion-col>
+
+      <ion-col col-2 right>
+      <button ion-fab mini (click)="AddCliked()"><ion-icon name="add"></ion-icon></button>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row style="background-color: #9CD0F9; border-radius: 25px;">
+
+
+  <!--ROW 1-->
+  <ion-row  style="height: 95%">
+    <ion-col col-xs-6  col-md-6 col-lg-6 offset-lg-9 pull-md-3>
+
+          <ion-card *ngFor="let datos of miListaFiltre">
 
             <div class="card-title" >
-              <ion-icon (click)="presentProfileModal(datos.name, datos.url)" name="search"></ion-icon>
+              <ion-icon  name="search"></ion-icon>
             </div>
 
 
-            <img src="{{datos.url}}"/>
-            <ion-card-content>
+            <img imageViewer src="{{datos.url}}"/>
+            <ion-card-content >
 
               <p>
                {{datos.description}}
               </p>
 
-              <button (click)="showContent(datos.description, 'donat',datos.url)" ion-button color="sucess" round outline>Donat</button>
-              <button (click)="showContent(datos.description, 'info',datos.url)" ion-button color="secondary" round outline>+ Info</button>
+              <button (click)="showContent(datos, 'donat')" ion-button color="primary" round >Donat</button>
+              <button (click)="showContent(datos, 'info')" ion-button color="secondary" round >+ Info</button>
             </ion-card-content>
           </ion-card>
 
@@ -38,46 +56,7 @@
 
     </ion-col>
   </ion-row>
-
-  <!--&lt;!&ndash;ROW 2&ndash;&gt;-->
-  <!--<ion-row>-->
-    <!--<ion-col col-12 col-xs-6 col-lg-6 offset-lg-3>-->
-
-          <!--<ion-card>-->
-            <!--<img src="http://www.nosgustaviajar.es/wp-content/uploads/2010/01/oporto-iglesias-monumentos-300x225.jpg"/>-->
-            <!--<ion-card-content>-->
-              <!--<ion-card-title>-->
-                <!--Nine Inch Nails Live-->
-              <!--</ion-card-title>-->
-              <!--<p>-->
-                <!--The most popular industrial group ever, and largely-->
-                <!--responsible for bringing the music to a mass audience.-->
-              <!--</p>-->
-            <!--</ion-card-content>-->
-          <!--</ion-card>-->
-
-    <!--</ion-col>-->
-  <!--</ion-row>-->
-
+  </ion-row>
 </ion-grid>
-
-
-
-
-  <ion-card>
-    <ion-card-header>
-      Explore Nearby
-    </ion-card-header>
-
-    <ion-list>
-
-      <button ion-item *ngFor="let data of miLista" (click)="showContent(data.description)">
-        <ion-icon name="{{data.icon}}" item-start></ion-icon>
-        {{data.name}}
-      </button>
-
-    </ion-list>
-  </ion-card>
 </ion-content>
-
 

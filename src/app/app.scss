@@ -15,9 +15,41 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.scroll-content {
+  background-color: white !important;
+}
+
+.tab-button {
+  color: #8758D9 !important;
+  background-color: white;// map-get($colors, primary);
+}
 
 .no-scroll {
   scroll-content {
     overflow-y: hidden;
   }
+}
+.toolbar-background {
+  background-color: #40c4ff;
+}
+.img {
+  height: 375px;
+  width: 270px;
+}
+
+.ion-md-star:before, .ion-ios-star:before, .ion-ios-home:before, .ion-md-home:before {
+  color: #8758D9;
+}
+
+.toolbar-title{
+  color: white;// map-get($colors, primary);
+}
+
+.toast-container{
+  background-color: map-get($colors, secondary);
+}
+
+.alertMsg {
+  background-color: map-get($colors, primary) !important;
+ color : white !important;
 }

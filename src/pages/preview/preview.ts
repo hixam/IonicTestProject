@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 /**
  * Generated class for the PreviewPage page.

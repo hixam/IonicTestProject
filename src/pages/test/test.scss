@@ -1,3 +1,47 @@
 page-test {
 
+  table {
+    height: 380px;
+    width: 270px;
+
+  }
+  table, th, td {
+    //border: 1px solid black;
+    border-radius: 18px !important;
+
+    .free {
+      background-color: #535454;
+      opacity: 0.95;
+
+    }
+
+    //td.free:hover {
+    //  background-color: #3D9970;
+    // // opacity: 0.5;
+    //}
+
+    .donated {
+      background-color: transparent;
+      opacity: 1;
+    }
+
+    .donationSpan {
+      text-align: center;
+      position: absolute;
+      color: white;
+      z-index: 1;
+    }
+    p {
+      background-color: #222222;
+      color: white !important;
+      opacity: 0.6;
+    }
+  }
+  ion-card {
+    border-radius: 25px !important;
+    background-color: #9CD0F9 !important;
+
+  }
+
 }
+
