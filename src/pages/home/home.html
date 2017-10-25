@@ -1,26 +1,27 @@
-<ion-header >
-  <ion-navbar>
-
-   <ion-title>
-     App Donation
-   </ion-title>
-
-  </ion-navbar>
-</ion-header>
-
+<!--<ion-header >-->
+  <!--<ion-navbar>-->
+    <!--<ion-title>-->
+      <!--App Donation-->
+    <!--</ion-title>-->
+    <!--<button ion-button menuToggle icon-only>-->
+      <!--<ion-icon name='menu'></ion-icon>-->
+    <!--</button>-->
+  <!--</ion-navbar >-->
+<!--</ion-header >-->
+<header ></header>
 <ion-content padding class="card-background-page">
-<ion-grid>
+<ion-grid style="padding-top:50px;">
 
   <ion-row offset-lg-2>
 
-    <ion-col col-10 left>
-      <ion-toolbar color="secondary" style="border-radius: 25px;">
-        <ion-searchbar placeholder="Search" style="border-radius: 35px;" (ionInput)="filterItems($event)"></ion-searchbar>
+    <ion-col col-10 left >
+      <ion-toolbar color="secondary" style="border-radius: 25px;" >
+        <ion-searchbar placeholder="Search" style="border-radius: 35px;" (ionClear)="resetSearch()" (ionInput)="filterItems($event)"></ion-searchbar>
       </ion-toolbar>
     </ion-col>
 
       <ion-col col-2 right>
-      <button ion-fab mini (click)="AddCliked()"><ion-icon name="add"></ion-icon></button>
+      <button ion-fab mini (click)="AddCliked()" ><ion-icon name="add"></ion-icon></button>
     </ion-col>
 
   </ion-row>
@@ -30,7 +31,7 @@
 
   <!--ROW 1-->
   <ion-row  style="height: 95%">
-    <ion-col col-xs-6  col-md-6 col-lg-6 offset-lg-9 pull-md-3>
+    <ion-col col-xs-6  col-md-6 col-lg-6 offset-lg-7 pull-md-3>
 
           <ion-card *ngFor="let datos of miListaFiltre">
 
@@ -59,4 +60,3 @@
   </ion-row>
 </ion-grid>
 </ion-content>
-

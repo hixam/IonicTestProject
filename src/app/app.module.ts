@@ -11,19 +11,28 @@ import {FormsModule} from '@angular/forms';
 import { LowerCasePipe } from '@angular/common';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { ToastController } from 'ionic-angular';
+import {HeaderComponent} from "../components/header/header";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TestPage,
+    HeaderComponent,
     PreviewPage
   ],
   imports: [
     IonicImageViewerModule,
     BrowserModule,
     FormsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,{
+      menuType: 'push',
+      platforms: {
+        ios: {
+          menuType: 'overlay',
+        }
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
