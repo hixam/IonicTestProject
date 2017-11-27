@@ -1,0 +1,76 @@
+<!--
+  Generated template for the ModalsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista donantes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row push-lg-2 push-xl-2 push-md-2 push-xs-2>
+
+    <ion-col col-12 col-lg-12 col-md-12 col-xs-12>
+
+      <!--TABLE-->
+
+      <table #someVar style="background-repeat: round;" background="">
+
+        <tr>
+          <ion-col col-6 col-lg-6 col-md-6 col-xs-6>
+          <th>Donante</th>
+          </ion-col>
+          <ion-col col-3 col-lg-3 col-md-3 col-xs-3 push-2>
+            <th >Cantidad</th>
+          </ion-col>
+          <ion-col col-3 col-lg-3 col-md-3 col-xs-3 push-4>
+            <th>Comentario</th>
+          </ion-col>
+        </tr>
+
+        <tr *ngFor="let d of donationArray">
+
+          <td>
+
+            <!--USER NAME-->
+            <ion-col col-6 col-lg-6 col-md-6 col-xs-6>
+              {{d.user.names}}
+            </ion-col>
+
+            <!--USER DONATION AMOUNT-->
+            <ion-col col-3 col-lg-3 col-md-3 col-xs-3 push-3 >
+              {{d.user.amounts}} $
+            </ion-col>
+
+            <!--USER DONATION COMMENT-->
+            <ion-col col-3 col-lg-3 col-md-3 col-xs-3 push-6>
+              <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+            </ion-col>
+
+
+          </td>
+
+        </tr>
+      </table>
+
+    </ion-col>
+
+    <ion-col col-12 col-lg-12 col-md-12 col-xs-12>
+      <button (click)="dismiss()" ion-button full color="danger">Close</button>
+    </ion-col>
+
+  </ion-row>
+
+  <ng-template #elseBlock>
+
+  </ng-template>
+
+</ion-content>
+
+

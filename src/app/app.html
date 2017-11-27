@@ -6,21 +6,26 @@
   </ion-header>
 
   <ion-content >
-    <ion-list  >
+    <ion-list>
       <button ion-item (click)="openPage(homePage)">
+        <ion-icon ios="ios-home" md="md-home"></ion-icon>
         Home
       </button>
       <button ion-item (click)="openPage(friendsPage)">
-        Friends
+        <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
+        Login
       </button>
       <button ion-item (click)="openPage(eventsPage)">
-        Events
+        <ion-icon ios="ios-contact" md="md-contact"></ion-icon>
+        Profile
       </button>
       <button ion-item (click)="closeMenu()">
-        Close Menu
+        <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
+        Logout
       </button>
     </ion-list>
   </ion-content>
+
 </ion-menu>
 <!--<ion-nav [root]="rootPage"></ion-nav>-->
 

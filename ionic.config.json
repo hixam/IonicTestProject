@@ -1,6 +1,6 @@
 {
   "name": "testBlank",
-  "app_id": "",
+  "app_id": "283a5750",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

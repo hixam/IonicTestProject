@@ -4,112 +4,133 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<header ></header>
+<page-header></page-header>
 
 
-<ion-content padding margin-top="50px" >
+<ion-content padding margin-top="50px">
 
 
-<ion-card >
+  <ion-card>
     <ion-card-header>
       {{info === true ? 'Info' : 'Donation'}}
     </ion-card-header>
 
     <ion-grid>
- <ion-card-content *ngIf="info; else elseBlock">
-      <ion-card-title>{{name}}</ion-card-title>
-      <ion-row>
+      <ion-card-content *ngIf="info; else elseBlock">
+        <ion-card-title>{{name}}</ion-card-title>
+        <ion-row>
 
-        <ion-col col-12>
-          <img [src]="img">
-          <hr>
-          <p>{{parameter1}}</p>
-        </ion-col>
+          <ion-col col-12>
+            <img [src]="img">
+            <hr>
+            <p>{{parameter1}}</p>
+          </ion-col>
 
-        <ion-col col-6 push-2>
-            <button ion-button color="danger" round >some Danger</button>
-        </ion-col>
+          <ion-col col-6 push-2>
+            <button ion-button color="danger" round>some Danger</button>
+          </ion-col>
 
-        <ion-col col-12>
-          <hr>
-          <p> {{parameter1}}</p>
-        </ion-col>
-
-
-      </ion-row>
-    </ion-card-content>
+          <ion-col col-12>
+            <hr>
+            <p> {{parameter1}}</p>
+          </ion-col>
 
 
-        <!--ELSE BLOCK-->
-        <ng-template #elseBlock>
-          <ion-grid>
-            <ion-row>
-            <ion-col>
-            <!--<img src="https://iera.org/wp-content/uploads/2017/06/Make_an_online_donation_256.png" style="width:60%; height:70%;">-->
-            </ion-col>
-              <!--background='https://media-cdn.tripadvisor.com/media/photo-s/01/56/6a/3a/la-iglesia-de-andacollo.jpg'-->
-              <ion-col col-xl-6 pull-xl-1 >
-                <table #someVar style="background-repeat: round;" background="">
-
-                  <tr *ngFor="let user of donationArray; let i = index">
-                    <td class="{{user[0].name != '' ? 'donated' : 'free'}}">
-                      <span class="donationSpan">
-                        <p>{{ user[0].name != '' ? user[0].name : 'Donat Now' }}</p>
-                         <button style="text-transform: none;" ion-button (click)="Alert(0,i)"
-                                 ion-button color="{{user[0].amount === '' ? 'primary' : 'secondary'}}"
-                                 small round
-                                 [disabled]="user[0].amount != ''">
-
-                           {{(user[0].amount != '' ? user[0].amount+'$': 'Donat')}}
-                         </button>
-                      </span>
-                    </td>
-                    <td class="{{user[1].name != '' ? 'donated' : 'free'}}">
-                      <span class="donationSpan">
-                        <p>{{ user[1].name != '' ? user[1].name : 'Donat Now' }}</p>
-                        <button style="text-transform: none;" (click)="Alert(1,i)"
-                                ion-button color="{{user[1].name === '' ? 'primary' : 'secondary'}}"
-                                small round
-                                [disabled]="user[1].amount != ''">
-                          <!--[outline]="user[1].name === ''"-->
-                          {{(user[1].amount != '' ? user[1].amount+'$' : "Donat")}}
-                        </button>
-                      </span>
-                    </td>
-                    <td class="{{user[2].name != '' ? 'donated' : 'free'}}">
-                      <span class="donationSpan">
-                        <p>{{ user[2].name != '' ? user[2].name : 'Donat Now' }}</p>
-                        <button style="text-transform: none;" (click)="Alert(2,i)"
-                                ion-button color="{{user[2].name === '' ? 'primary' : 'secondary'}}"
-                                small round
-                                [disabled]="user[2].amount != ''">
-                          {{user[2].amount != '' ? user[2].amount+'$': 'Donat'}}
-                        </button>
-                      </span>
-                      </td>
-                  </tr>
-                </table>
-              </ion-col>
-
-          <!--<ion-col col-12 col-lg-12 col-sm-12 col-md-12 col-xl-12>-->
-          <!--<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">-->
-            <!--<ion-item>-->
-              <!--<ion-label floating>Name</ion-label>-->
-              <!--<ion-input type="text" formControlName="names" name="names"></ion-input>-->
-            <!--</ion-item>-->
-            <!--<ion-item>-->
-              <!--<ion-label floating>Amounth</ion-label>-->
-              <!--<ion-textarea type="text" formControlName="message" name="message"></ion-textarea>-->
-            <!--</ion-item>-->
-            <!--<button ion-button color="danger" round outline push-3>-->
-              <!--<ion-icon name="add"></ion-icon>Submit</button>-->
-          <!--</form>-->
-          <!--</ion-col>-->
-            </ion-row>
-          </ion-grid>
-        </ng-template>
+        </ion-row>
+      </ion-card-content>
 
     </ion-grid>
+
+      <!--ELSE BLOCK-->
+      <ng-template #elseBlock>
+        <ion-grid style=" width: 101%;height: -webkit-fill-available">
+          <ion-row>
+            <ion-col>
+              <!--<img src="https://iera.org/wp-content/uploads/2017/06/Make_an_online_donation_256.png" style="width:60%; height:70%;">-->
+            </ion-col>
+            <!--background='https://media-cdn.tripadvisor.com/media/photo-s/01/56/6a/3a/la-iglesia-de-andacollo.jpg'-->
+            <ion-col col-xl-6 pull-xl-1>
+
+              <!--new table-->
+              <table #someVar style="background-repeat: round;" background="">
+
+                <tr *ngFor="let imgP of donationRowList; let i = index">
+
+                  <td *ngFor="let donationObj of imgP.imgPart; let j = index"
+                      class="{{imgP.imgPart.length > 0 ? 'donated' : 'free'}}">
+
+
+
+
+                      <span class="donationSpan">
+
+                            <ion-col col-xl-6>
+                                <ion-fab class="fabIco">
+
+                                <button ion-fab color="secondary" mini>
+                                  <ion-icon name="arrow-dropdown"></ion-icon>
+                                </button>
+
+                                <ion-fab-list side="buttom">
+                                  <div class="container">
+                                    <button ion-fab mini (click)="presentContactModal(donationObj.donations)">  <ion-icon ios="ios-people" md="md-people"></ion-icon></button>
+                                    <button ion-fab mini (click)="presentContactModal(donationObj.donations)">  <ion-icon ios="ios-card" md="md-card"></ion-icon></button>
+                                  </div>
+                                </ion-fab-list>
+
+                                </ion-fab>
+                            </ion-col>
+
+                            <ion-col col-xl-6 col-lg-6 col-md-6 col-xs-6 pull-2>
+
+                              <ion-badge item-start color="light">
+                              Donado:{{donationObj.donations[j].amount}}$
+                                <!--<ion-icon ios="logo-euro" md="logo-euro">-->
+                              <!--</ion-icon>-->
+                              </ion-badge>
+
+                            </ion-col>
+                        <!--<p>Donado: {{donationObj.donations[j].amount}} $ </p>-->
+
+
+                        <!--<p *ngFor="let donationData of donationObj.donations; let x = index">{{ donationData.user.names }}</p>-->
+
+                        <!--<p>{{ donationObj.donations[j].user.name}}</p>-->
+                        <!--<button style="text-transform: none;" ion-button (click)="Alert(0,i)"-->
+                        <!--ion-button color="{{donationObj.donations[j].amount === '' ? 'primary' : 'secondary'}}"-->
+                        <!--small round-->
+                        <!--[disabled]="donationObj.donations[j].amount != ''">-->
+
+                        <!--{{(donationObj.donations[j].amount != '' ? donationObj.donations[j].amount+' $': 'Donat')}}-->
+                        <!--</button>-->
+
+                      </span>
+
+                  </td>
+
+                </tr>
+              </table>
+
+            </ion-col>
+
+            <!--<ion-col col-12 col-lg-12 col-sm-12 col-md-12 col-xl-12>-->
+            <!--<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">-->
+            <!--<ion-item>-->
+            <!--<ion-label floating>Name</ion-label>-->
+            <!--<ion-input type="text" formControlName="names" name="names"></ion-input>-->
+            <!--</ion-item>-->
+            <!--<ion-item>-->
+            <!--<ion-label floating>Amounth</ion-label>-->
+            <!--<ion-textarea type="text" formControlName="message" name="message"></ion-textarea>-->
+            <!--</ion-item>-->
+            <!--<button ion-button color="danger" round outline push-3>-->
+            <!--<ion-icon name="add"></ion-icon>Submit</button>-->
+            <!--</form>-->
+            <!--</ion-col>-->
+          </ion-row>
+        </ion-grid>
+      </ng-template>
+
   </ion-card>
 
 

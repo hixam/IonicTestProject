@@ -12,19 +12,22 @@ import { LowerCasePipe } from '@angular/common';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { ToastController } from 'ionic-angular';
 import {HeaderComponent} from "../components/header/header";
+import {HeaderPage} from "../pages/header/header";
+import {ModalsPageModule} from "../pages/modals/modals.module";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TestPage,
-    HeaderComponent,
+    HeaderPage,
     PreviewPage
   ],
   imports: [
     IonicImageViewerModule,
     BrowserModule,
     FormsModule,
+    ModalsPageModule,
     IonicModule.forRoot(MyApp,{
       menuType: 'push',
       platforms: {

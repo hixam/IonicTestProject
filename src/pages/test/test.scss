@@ -3,7 +3,6 @@ page-test {
   table {
     height: 380px;
     width: 270px;
-
   }
   table, th, td {
     //border: 1px solid black;
@@ -20,17 +19,28 @@ page-test {
     // // opacity: 0.5;
     //}
 
+    .donated:hover {
+      background-color: black;
+      opacity: 0.6;
+    }
+
     .donated {
-      background-color: transparent;
-      opacity: 1;
+      background-color: black;
+      opacity: 0;
+    }
+    .fabIco {
+      left : 1.6rem;
+      bottom: 3rem;
     }
 
     .donationSpan {
       text-align: center;
       position: absolute;
+      vertical-align: center;
       color: white;
       z-index: 1;
     }
+
     p {
       background-color: #222222;
       color: white !important;
@@ -40,7 +50,10 @@ page-test {
   ion-card {
     border-radius: 25px !important;
     background-color: #9CD0F9 !important;
+  }
 
+  .noHover{
+    pointer-events: none;
   }
 
 }

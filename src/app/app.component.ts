@@ -26,5 +26,9 @@ export class MyApp {
     this.tab1 = HomePage;
     this.tab2 = TestPage;
   }
+
+  openPage(page: String) {
+
+  }
 }
 

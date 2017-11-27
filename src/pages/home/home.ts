@@ -3,6 +3,9 @@ import {NavController, ModalController, Content, AlertController} from 'ionic-an
 import { TestPage } from '../test/test';
 import {PreviewPage} from "../preview/preview";
 import { MenuController } from 'ionic-angular';
+// import * as Pusher from '../../../node_modules/pusher';
+// import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
 
 @Component({
   selector: 'page-home',
@@ -39,6 +42,19 @@ export class HomePage {
   constructor(public menuCtrl: MenuController,public alertCtrl: AlertController,public navCtrl: NavController, public modalCtrl: ModalController) {
 
 
+    // Enable pusher logging - don't include this in production
+    //Pusher.prototype.logToConsole = true;
+
+    // var pusher = new Pusher.arguments('693e23eea303b98a08bf', {
+    //   cluster: 'eu',
+    //   encrypted: true
+    // });
+    //
+    // var channel = pusher.subscribe('my-channel');
+    // channel.bind('my-event', function(data) {
+    //   alert(data.message);
+    // });
+
   }
   openMenu() {
     this.activeMenu = 'menu1';
@@ -47,6 +63,7 @@ export class HomePage {
   }
   ngOnInit() {
     this.miListaFiltre = this.miLista;
+
   }
 
   @Input("content") protected content: Content;
