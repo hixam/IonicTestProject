@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TestPage } from "../pages/test/test";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { MapPage } from '../pages/map/map';
 import {PreviewPage} from "../pages/preview/preview";
 import {FormsModule} from '@angular/forms';
 import { LowerCasePipe } from '@angular/common';
@@ -19,6 +20,7 @@ import {ModalsPageModule} from "../pages/modals/modals.module";
   declarations: [
     MyApp,
     HomePage,
+    MapPage,
     TestPage,
     HeaderPage,
     PreviewPage
@@ -41,6 +43,7 @@ import {ModalsPageModule} from "../pages/modals/modals.module";
   entryComponents: [
     MyApp,
     HomePage,
+    MapPage,
     TestPage,
     PreviewPage
   ],
